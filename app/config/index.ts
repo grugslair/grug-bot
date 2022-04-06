@@ -1,10 +1,10 @@
 require('dotenv').config();
 
 export const twitterConfig = {
-    consumer_key: process.env.CONSUMER_KEY || "",
-    consumer_secret: process.env.CONSUMER_SECRET || "",
-    access_token: process.env.ACCESS_TOKEN_KEY || "",
-    access_token_secret: process.env.ACCESS_TOKEN_SECRET || "",
+    consumer_key: process.env.TWITTER_CONSUMER_KEY || "",
+    consumer_secret: process.env.TWITTER_CONSUMER_SECRET || "",
+    access_token: process.env.TWITTER_ACCESS_TOKEN_KEY || "",
+    access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET || "",
 };
 
 export const discordConfig = {
