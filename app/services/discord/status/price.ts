@@ -12,5 +12,5 @@ export const getPrice = async () => {
     }
     await getLordsPrice()
     console.log(lordsPriceUSD)
-    return '$LORDS: $' + lordsPriceUSD.toFixed(2).toString()
+    return '$LORDS: $' + lordsPriceUSD.toFixed(2).toString() + ', Ξ' + lordsPriceETH.toFixed(6).toString()
 }

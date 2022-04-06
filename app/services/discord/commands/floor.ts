@@ -2,9 +2,8 @@ import fetch from 'node-fetch';
 import { SlashCommandBuilder } from "@discordjs/builders";
 import { settings } from '../../utils/helpers';
 
-
-const fetchFloor = async () => {
-    let url = `https://api.opensea.io/api/v1/collection/lootrealms/stats`
+const fetchFloor = async (collectionName: string) => {``
+    let url = `https://api.opensea.io/api/v1/collection/` + collectionName + `/stats`
     let res = await fetch(url, settings);
 
     if (res.status == 404 || res.status == 400) {
@@ -22,11 +21,17 @@ const fetchFloor = async () => {
 export = {
     data: new SlashCommandBuilder()
         .setName("floor")
-        .setDescription("Gets the Floor"),
+        .setDescription("Look up the floor of a collection")
+        .addStringOption(option =>
+            option.setName('collection')
+                .setDescription('Choose the collection to look up')
+                .setRequired(true)
+                .addChoice('Grug\'s Lair', 'grugslair')
+                .addChoice('Realms', 'lootrealms')),
     async execute(message: any) {
-        fetchFloor()
+        fetchFloor(message.options.getString('collection'))
             .then((floorPrice: any) => {
-                message.channel.send(`Ser, the current Realms floor price is ${floorPrice.toFixed(3)}Ξ`);
+                message.channel.send(`Ser, the current floor price of ${message.options.getString('collection')} is ${floorPrice.toFixed(3)}Ξ`);
             })
             .catch((error: any) => message.channel.send(error.message));
     },
