@@ -24,7 +24,7 @@ export = {
 
         do {
             let url: string = `${openSeaConfig.openseaEventsUrl
-                }?collection_slug=lootrealms&event_type=successful&only_opensea=false&occurred_before=${newTimestamp}${next == null ? "" : `&cursor=${next}`
+                }?collection_slug=${openSeaConfig.collectionName}&event_type=successful&only_opensea=false&occurred_before=${newTimestamp}${next == null ? "" : `&cursor=${next}`
                 }`;
             try {
                 var res = await fetch(url, settings);
@@ -54,6 +54,8 @@ export = {
 
                         const message = await buildMessage(event, true);
 
+                        console.log(message)
+
                         client.channels
                             .fetch(discordConfig.salesChannel)
                             .then((channel: any) => {
@@ -61,20 +63,20 @@ export = {
                                     .send({ embeds: [message.attributes] })
                                     .then((text: any) => {
                                         console.log(text)
-                                        for (const resource of message.resources) {
+                                        // for (const resource of message.resources) {
 
 
-                                            const emoji = client.emojis.cache.find(
-                                                (emoji: any) =>
-                                                    emoji.name === resource.replace(" ", "")
-                                            );
+                                        //     const emoji = client.emojis.cache.find(
+                                        //         (emoji: any) =>
+                                        //             emoji.name === resource.replace(" ", "")
+                                        //     );
 
 
 
-                                            if (emoji) {
-                                                text.react(emoji);
-                                            }
-                                        }
+                                        //     if (emoji) {
+                                        //         text.react(emoji);
+                                        //     }
+                                        // }
                                     });
                             })
                             .catch(console.error);

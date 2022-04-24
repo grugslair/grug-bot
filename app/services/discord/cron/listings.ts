@@ -24,7 +24,7 @@ export = {
         let newEvents = true;
 
         do {
-            let url: string = `${openSeaConfig.openseaEventsUrl}?collection_slug=lootrealms&event_type=created&only_opensea=false&occurred_before=${newTimestamp}${next == null ? '' : `&cursor=${next}`}`;
+            let url: string = `${openSeaConfig.openseaEventsUrl}?collection_slug=${openSeaConfig.collectionName}&event_type=created&only_opensea=false&occurred_before=${newTimestamp}${next == null ? '' : `&cursor=${next}`}`;
             try {
                 var res = await fetch(url, settings);
                 if (res.status != 200) {
@@ -34,7 +34,7 @@ export = {
                 let data = await res.json();
 
                 next = data.next;
-
+                console.log(data)
                 data.asset_events.forEach(async function (event: any) {
 
                     if (event.asset) {
@@ -55,19 +55,19 @@ export = {
 
                         client.channels.fetch(discordConfig.listingsChannel)
                             .then((channel: any) => {
-                                channel.send({ embeds: [message.attributes] }).then((text: any) => {
+                                channel.send({ embeds: [message.attributes] }).then(() => {
 
-                                    for (const resource of message.resources) {
+                                    // for (const resource of message.resources) {
 
-                                        const emoji = client.emojis.cache.find(
-                                            (emoji: any) =>
-                                                emoji.name === resource.replace(" ", "")
-                                        );
+                                    //     const emoji = client.emojis.cache.find(
+                                    //         (emoji: any) =>
+                                    //             emoji.name === resource.replace(" ", "")
+                                    //     );
 
-                                        if (emoji) {
-                                            text.react(emoji);
-                                        }
-                                    }
+                                    //     if (emoji) {
+                                    //         text.react(emoji);
+                                    //     }
+                                    // }
                                 });
                             })
                             .catch(console.error);
