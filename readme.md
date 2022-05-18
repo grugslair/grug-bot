@@ -1,22 +1,10 @@
-# Squire: Discord & Twitter Bot
-
-Squire is a multitalented bot. He interfaces with Discord and Twitter. Currently this repo is heavily catered towards the needs of Bibliotheca DAO and the Lootverse in general.
-
-Further abstraction is needed to make this bot plug and playable by other teams. But by all means fork him and customise.
+# Grug
 
 ---
 
 ## GOAL
 
-The goal of this little bot is to be the interface between StarkNet and Discord. It aims to be the go-to resource for all Adventurers within StarkNet.
-
----
-
-## What Squire currently does:
-
-- Receives Desiege Updates & posts to discord & twitter.
-- Fetches Realm Information
-- Fetches Crypts & Caverns Information
+Become the best guild bot that ever threw rocks.
 
 ---
 
