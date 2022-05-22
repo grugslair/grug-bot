@@ -18,13 +18,13 @@ export const getRealm = gql`
   }
 `;
 
-export const getGA = gql`
-  query getRealm($id: String!) {
-    adventurers(where: { id: $id }) {
-      tokenURI
-    }
-  }
-`;
+// export const getGA = gql`
+//   query getRealm($id: String!) {
+//     adventurers(where: { id: $id }) {
+//       tokenURI
+//     }
+//   }
+// `;
 
 export const getCNC = gql`
   query getDungeon($id: String!) {
