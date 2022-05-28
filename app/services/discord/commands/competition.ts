@@ -20,7 +20,7 @@ export = {
         //),
     async execute(message: any) {
         let compet = message.options.getString('competition')
-        let result = ''
+        // let result = ''
         // let pyshell = new PythonShell("app/services/discord/commands/L2Challenge.py")
         // pyshell.run("app/services/discord/commands/L2Challenge.py", options, function (err: any, results: string) {
         //     if (err) throw err;
@@ -40,6 +40,7 @@ export = {
             }]
             })
             .catch((error: any) => message.channel.send(error.message))
+        let result = ''
         PythonShell.run("app/services/discord/commands/L2Challenge.py", options, function (err: any, results: any) {
             if (err) message.channel.send(err);
             result = results.join('\n');
