@@ -39,8 +39,6 @@ client.once("ready", () => {
 
 });
 
-
-
 client.on("interactionCreate", async (interaction) => {
     if (!interaction.isCommand()) return;
 
@@ -50,6 +48,10 @@ client.on("interactionCreate", async (interaction) => {
 
     try {
         await command.execute(interaction);
+        await interaction.reply({
+            content: "wait...",
+            ephemeral: true,
+        });
     } catch (error) {
         console.error(error);
         await interaction.reply({
@@ -58,6 +60,7 @@ client.on("interactionCreate", async (interaction) => {
         });
     }
 });
+
 
 client.on('messageCreate', msg => {
     if (!msg.content.startsWith(discordConfig.prefix) || msg.author.bot) return;

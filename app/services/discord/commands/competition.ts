@@ -12,7 +12,7 @@ export = {
         // .addIntegerOption((option) =>
         //     option.setName("int").setDescription("Enter 0 for projects and 1 for Grugs")
         //),
-    async execute(interaction: any) {
+    async execute(message: any) {
         let result = ''
         // let pyshell = new PythonShell("app/services/discord/commands/L2Challenge.py")
         // pyshell.run("app/services/discord/commands/L2Challenge.py", options, function (err: any, results: string) {
@@ -31,8 +31,8 @@ export = {
             result = results.join('\n');
             console.log('qq');
             console.log(result);
-            interaction.channel.send(result)
-                .catch((error: any) => interaction.channel.send(error.message))
+            message.channel.send(result)
+                .catch((error: any) => message.channel.send(error.message))
         });
 
         // pyshell.end(function (err: any) {
