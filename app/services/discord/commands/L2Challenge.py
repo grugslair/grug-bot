@@ -1,5 +1,3 @@
-print('....')
-
 import requests
 import pandas as pd
 
@@ -12,18 +10,24 @@ data = {}
 for i in currents:
   data[i['id']] = [i['symbol'], i['name'], i['current_price']]
 
-for i in ids:
+print("Start fetching data")
 
+for i in ids:
   # histo_url = f'https://api.coingecko.com/api/v3/coins/{i}/ohlc?vs_currency=usd&days=90'
   # hist = requests.get(histo_url).json()
-  
+  print("Retrieving data from ", buy_url)
+ 
   buy_url = f"https://api.coingecko.com/api/v3/coins/{i}/history?date=01-04-2022&localization=false"
   buy = requests.get(buy_url).json()
+  print("Success retrieving ",i)
 
   try:
+    print("Adding data ", buy['market_data']['current_price']['usd'])
     data[i].append(buy['market_data']['current_price']['usd'])
   except: 
+    print("Failed adding data")
     data[i].append(None)
+
 df = pd.DataFrame.from_dict(data, orient='index', columns = ['symbol','name','current_price','buy_price'])
 
 df['growth'] = (df['current_price'] / df['buy_price'] - 1 ) * 100
