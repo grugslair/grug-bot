@@ -1,0 +1,6 @@
+ids = nft-worlds,crabada,lords,magic,ethereum,mars4
+start_date = 01-06-2022
+end_date = 10-06-2022
+'```   symbol                 name  final_price    buy_price     growth\n brrr```'
+'The winners were: cscscsc'
+'are availible [here](duckduckgo.com)'
