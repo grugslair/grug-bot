@@ -23,3 +23,8 @@ export const openSeaConfig = {
     collectionName: process.env.OPEN_SEA_COLLECTION_NAME,
     contractAddress: process.env.REALMS_CONTRACT_ADDRESS
 }
+
+export const ethereumConfig = {
+    ethplorerApiKey: process.env.ETHPLORER_TOKEN,
+    ethereumAddress: process.env.ETHEREUM_ADDRESS
+}
