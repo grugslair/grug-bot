@@ -126,7 +126,7 @@ export = {
                     {
                         name: "Balance (in USD)",
                         value: tokenBalances.map(a => {
-                        return a.token_balance_usd.toFixed(0).replace(/\d(?=(\d{3})+\.)/g, '$&,')
+                        return a.token_balance_usd.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
                     }).join(`\n`),
                         inline: true
                     },
@@ -134,7 +134,7 @@ export = {
                         name: "Total Balance (in USD)",
                         value: tokenBalances.reduce((accumulator, object) => {
                             return accumulator + object.token_balance_usd;
-                          }, 0).toFixed(0).replace(/\d(?=(\d{3})+\.)/g, '$&,')
+                          }, 0).toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')
                     }
                 )
                 message.channel.send({ embeds: [listEmbed] });
