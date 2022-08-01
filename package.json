@@ -9,6 +9,8 @@
     "@discordjs/builders": "^0.12.0",
     "@discordjs/rest": "^0.3.0",
     "@notionhq/client": "^1.0.4",
+    "api": "^4.5.1",
+    "ascii-table": "^0.0.9",
     "axios": "^0.27.2",
     "body-parser": "^1.19.1",
     "discord-api-types": "^0.29.0",
@@ -34,7 +36,7 @@
     "@types/twit": "^2.2.30"
   },
   "engines": {
-    "node": "^17.1.0"
+    "node": "^16.16.0"
   },
   "scripts": {
     "start": "yarn build-ts && npm run serve && yarn watch-node",
